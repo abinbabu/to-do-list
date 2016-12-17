@@ -136,10 +136,11 @@ public class MyController {
 }
 	
 	@RequestMapping("/pending")
-	public ModelAndView pending() {
+	public ModelAndView pending(Model model) {
 
 		ModelAndView mv = new ModelAndView("/task");
 		mv.addObject("isnewp", "true");
+		model.addAttribute("taskList", this.taskDAO.listTask());
 		return mv;
 	}
 	

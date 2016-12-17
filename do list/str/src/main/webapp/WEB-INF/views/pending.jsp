@@ -11,7 +11,26 @@
 
 </head>
 <body>
+<h2 style=" font-family: verdana; color: #00000F;text-align: center">LIST OF TASKS</h2>
+	
+	<c:if test="${!empty taskList}">
+		<table align="center">
+			<tr>
+				<th style=" font-family: verdana; "> ID</th>
+				<th style=" font-family: verdana; "> TASK</th>
+				<th style=" font-family: verdana; "> DESCRIPTION</th>
+				
+			</tr>
 
-pending
+			<c:forEach items="${taskList }" var="task">
+				<tr>
+					<td style=" font-family: verdana; ">${task.id}</td>
+					<td style=" font-family: verdana; ">${task.task}</td>
+					<td style=" font-family: verdana; ">${task.description}</td>
+					<td> <a href="<c:url value='task/delete/${task.id}' />">Delete</a></td>
+					</tr>
+			</c:forEach>
+		</table>
+	</c:if>
 </body>
 </html>
