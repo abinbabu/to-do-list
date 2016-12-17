@@ -73,7 +73,7 @@
 						<form:form action="${action}" method="post">
 							<table>
 								<tr>
-									<td>User Name:</td>
+									<td>User Id:</td>
 
 									<td><input type="text" name="name"></td>
 								</tr>
@@ -101,6 +101,12 @@
 				<div id="error">${errorMessage}</div>
 
 
+			</c:if>
+		</div>
+		
+		<div id="isuser">
+			<c:if test="${isuser==true }">
+				<%@ include file="task.jsp"%> 
 			</c:if>
 		</div>
 		

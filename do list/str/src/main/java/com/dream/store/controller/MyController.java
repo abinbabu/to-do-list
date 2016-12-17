@@ -61,29 +61,28 @@ public class MyController {
 	
 	
 	@RequestMapping("/login")
-	public ModelAndView isValidUser(@RequestParam(value = "name") String name,
+	public ModelAndView isValidUser(@RequestParam(value = "name") String id,
 			@RequestParam(value = "password") String password, HttpSession session) {
         
 		
 		
 		ModelAndView mv = new ModelAndView("Home");
-		System.out.println("inside loginnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
-		System.out.println(user.getName() + "logged in");
 		
-		boolean isValidUser = userDAO.isValidUser(name, password , false);
+		
+		boolean isValidUser = userDAO.isValidUser(id, password , false);
 		mv.addObject("isUserClickedLoginHere", "true");
 		if (isValidUser == true) {
 			
-			
+			mv.addObject("isuser", "true");
 			System.out.println(user.getName() + "logged in");
-			user = userDAO.get(name);
-			session.setAttribute("loggedInUser", user.getName());
+			user = userDAO.get(id);
+			session.setAttribute("loggedInUser", user.getId());
 			session.setAttribute("user", user);
-			System.out.println(user.getName() + "logged in");
+			System.out.println(user.getId() + "logged in");
 
 			 if (user.isAdmin()) {
 		    	 mv.addObject("isAdmin", "true");	
-		    	 System.out.println(user.getName() + "admin logged in");
+		    	 System.out.println(user.getId() + "admin logged in");
 				 }
 				else {
 			 mv.addObject("isAdmin", "false");
@@ -114,11 +113,13 @@ public class MyController {
 	
 	
 	
-	@RequestMapping("/new")
-	public ModelAndView newr() {
+	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	public ModelAndView newr(Model model) {
 
 		ModelAndView mv = new ModelAndView("/task");
 		mv.addObject("isnew", "true");
+		model.addAttribute("task", task);
+		model.addAttribute("taskList", this.taskDAO.listTask());
 		return mv;
 	}
 	
@@ -140,20 +141,11 @@ public class MyController {
 	
 	
 	
-	@RequestMapping(value = "/news", method = RequestMethod.GET)
-	public String liString(Model model) {
-		
-		model.addAttribute("task", task);
-		model.addAttribute("taskList", this.taskDAO.listTask());
-		return "task";
-	}
 	
-	
-	
-	
-	@RequestMapping(value = "/to_add_new", method = RequestMethod.POST)
+	@RequestMapping(value = "/toaddnew", method = RequestMethod.POST)
 	public String addTasks(@ModelAttribute("task") Task task)
 	{
+		System.out.println("insiddddddddddddeeeeeeeeeeeeeeeeeeeeeeeee");
 		String newID = Util.removeComma(task.getId());
 		task.setId(newID);
 		

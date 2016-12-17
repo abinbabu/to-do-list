@@ -16,7 +16,7 @@ public class UserTest {
 		User user = (User) context.getBean("user");
 		
 		
-		user.setId("useit");
+		user.setId("us1");
 		user.setPassword("1234");
 		user.setName("user");
 		user.setAdmin(false);

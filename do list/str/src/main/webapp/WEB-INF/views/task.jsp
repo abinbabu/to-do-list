@@ -8,15 +8,45 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>task</title>
+
 </head>
 <body>
+
+<table width="80%">
+<tr>
+				<c:choose>
+					<c:when test="${empty loggedInUser}">
+					</c:when>
+
+					<c:when test="${not empty loggedInUser}">
+						<td>Welcome ${loggedInUser},</td>
+						<td align="right"><a href="logout"> logout</a></td>
+					</c:when>
+				</c:choose>
+			</tr>
+			<tr>
+				<c:if test="${loggedOut==true}">
+					<td>${logoutMessage}</td>
+				</c:if>
+			</tr>
+</table>
+</div>
+<div id="login">
+			<c:if
+				test="${isUserClickedLoginHere==true || invalidCredentials==true}">
+				<div id="error">${errorMessage}</div>
+
+
+			</c:if>
+		</div>
+
 <table width="50%">
 		<tr>
 			<td align="left"><a href="new"
 				style="textfont-size: 200%; font-family: verdana; color: #00000F">New Reminder</a></td>
 				
 			<td align="right"><a href="pending"
-				style="textfont-size: 200%; font-family: verdana; color: #00000F">Your Task</a></td>
+				style="textfont-size: 200%; font-family: verdana; color: #00000F">Added Task</a></td>
 			<td></td><td align="center"><a href="completed"
 				style="textfont-size: 200%; font-family: verdana; color: #00000F">completed
 				</a></td>
@@ -44,25 +74,6 @@
 			</c:if>
 		</div>
 
-
-<table width="100%">
-<tr>
-				<c:choose>
-					<c:when test="${empty loggedInUser}">
-					</c:when>
-
-					<c:when test="${not empty loggedInUser}">
-						<td>Welcome ${loggedInUser},</td>
-						<td align="right"><a href="logout"> logout</a></td>
-					</c:when>
-				</c:choose>
-			</tr>
-			<tr>
-				<c:if test="${loggedOut==true}">
-					<td>${logoutMessage}</td>
-				</c:if>
-			</tr>
-</table>
 
 
 </body>

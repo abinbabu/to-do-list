@@ -7,25 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>add new task</title>
+
+	<title>add new task</title>
 </head>
 <body>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <h2 style="text-align: center; font-family: verdana; color: #00000F">ADD NEW TASK</h2>
- 	 <c:url var="addAction" value="to_add_new"></c:url>
-	<form:form action="${addAction }" commandName="new">
+ 	 <c:url var="addAction" value="toaddnew"></c:url>
+	<form:form action="${addAction }" commandName="task" >
 
 		<table align="center">
 			<tr>
@@ -65,6 +54,9 @@
 				
 				<td colspan="2" align="center"><c:if test="${!empty task.task }">
 						<input type="submit"
+							value="<spring:message text="Edit"></spring:message>">
+					</c:if> <c:if test="${empty task.task}">
+						<input type="submit"
 							value="<spring:message text="Add"></spring:message>">
 					</c:if></td>
 			</tr>
@@ -73,28 +65,9 @@
 
 	<br>
 	
-	<h2 style=" font-family: verdana; color: #00000F;text-align: center">LIST OF TASKS</h2>
-	
-	<c:if test="${!empty taskList}">
-		<table align="center">
-			<tr>
-				<th style=" font-family: verdana; color: #00000F"> ID</th>
-				<th style=" font-family: verdana; color: #00000F"> TASK</th>
-				<th style=" font-family: verdana; color: #00000F"> DESCRIPTION</th>
-				
-			</tr>
 
-			<c:forEach items="${categoryList }" var="category">
-				<tr>
-					<td style=" font-family: verdana; color: #00000F">${category.id}</td>
-					<td style=" font-family: verdana; color: #00000F">${category.task}</td>
-					<td style=" font-family: verdana; color: #00000F">${category.description}</td>
-					</tr>
-			</c:forEach>
-		</table>
-	</c:if>
 
-<%--  --%>
+  
 
 </body>
 </html>

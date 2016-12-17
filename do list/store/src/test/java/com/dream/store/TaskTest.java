@@ -18,8 +18,8 @@ public class TaskTest {
 		
 		
 		task.setId("ts1");
-		task.setTask("no taskajchgjaydcya");
-		task.setDescription("ajytcvssdcvuaclcdldu");
+		task.setTask("no ya");
+		task.setDescription("ajyaclcdldu");
 		
 		
 		taskDAO.saveOrUpdateTask(task);
