@@ -12,25 +12,6 @@
 </head>
 <body>
 
-	<h2 style=" font-family: verdana; color: #00000F;text-align: center">LIST OF TASKS</h2>
-	
-	<c:if test="${!empty taskList}">
-		<table align="center">
-			<tr>
-				<th style=" font-family: verdana; color: #00000F"> ID</th>
-				<th style=" font-family: verdana; color: #00000F"> TASK</th>
-				<th style=" font-family: verdana; color: #00000F"> DESCRIPTION</th>
-				
-			</tr>
-
-			<c:forEach items="${categoryList }" var="category">
-				<tr>
-					<td style=" font-family: verdana; color: #00000F">${task.id}</td>
-					<td style=" font-family: verdana; color: #00000F">${task.task}</td>
-					<td style=" font-family: verdana; color: #00000F">${task.description}</td>
-					</tr>
-			</c:forEach>
-		</table>
-	</c:if>
+pending
 </body>
 </html>
