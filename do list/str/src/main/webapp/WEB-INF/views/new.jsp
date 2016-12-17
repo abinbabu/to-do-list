@@ -82,6 +82,7 @@
 					<td style=" font-family: verdana; ">${task.id}</td>
 					<td style=" font-family: verdana; ">${task.task}</td>
 					<td style=" font-family: verdana; ">${task.description}</td>
+					<td> <a href="<c:url value='task/delete/${task.id}' />">Delete</a></td>
 					</tr>
 			</c:forEach>
 		</table>
