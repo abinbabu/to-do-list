@@ -68,7 +68,7 @@ public class MyController {
         
 		
 		
-		ModelAndView mv = new ModelAndView("Home");
+		ModelAndView mv = new ModelAndView("task");
 		
 		
 		boolean isValidUser = userDAO.isValidUser(id, password , false);

@@ -6,7 +6,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -22,8 +22,14 @@
 <title>home</title>
 <link href="<c:url value="/resources/css/navbar-fixed-top.css" />"
 	rel="stylesheet">
+	<style type="text/css">
+body {
+    overflow:hidden;
+}
+</style>
 </head>
-<body>
+<body background="resources/css/landscape.png"     background-repeat: no-repeat>
+
 <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">

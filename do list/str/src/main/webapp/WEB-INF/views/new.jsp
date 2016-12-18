@@ -10,7 +10,7 @@
 
 	<title>add new task</title>
 </head>
-<body>
+<body background="resources/css/landscape.png">
 
 <h2 style="text-align: center; font-family: verdana; color: #00000F">ADD NEW TASK</h2>
  	 <c:url var="addAction" value="toaddnew"></c:url>

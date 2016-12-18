@@ -11,7 +11,7 @@
 <title>task</title>
 
 </head>
-<body>
+<body background="resources/css/landscape.png">
 
 <table width="80%">
 <tr>

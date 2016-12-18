@@ -21,7 +21,7 @@
 <title>Register User</title>
 </head>
 
-
+<body background="resources/css/landscape.png">
 	
     <form:form action="here/register" method="post" modelAttribute="user">
     </br></br></br></br></br></br></br></br></br></br></br></br>
