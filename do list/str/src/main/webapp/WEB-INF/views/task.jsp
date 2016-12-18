@@ -44,13 +44,11 @@
 <table width="50%">
 		<tr>
 			<td align="left"><a href="new"
-				style="textfont-size: 200%; font-family: verdana; color: #00000F">New Reminder</a></td>
+				style="textfont-size: 200%; font-family: verdana; color: #00000F">New Task</a></td>
 				
 			<td align="right"><a href="pending"
 				style="textfont-size: 200%; font-family: verdana; color: #00000F">Added Task</a></td>
-			<td></td><td align="center"><a href="completed"
-				style="textfont-size: 200%; font-family: verdana; color: #00000F">completed
-				</a></td>
+			
 
 		</tr>
 
