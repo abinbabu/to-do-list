@@ -2,6 +2,7 @@ package com.dream.dao;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,9 @@ public class TaskDAOImpl implements TaskDAO{
 
 	@Transactional
 	public void saveOrUpdateTask(Task task){
-		sessionFactory.getCurrentSession().saveOrUpdate(task);
+	Session s=sessionFactory.getCurrentSession();
+	s.saveOrUpdate(task);
+	s.flush();
 	}
 	
 	@Transactional

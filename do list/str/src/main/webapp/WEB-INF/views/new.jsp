@@ -49,6 +49,15 @@
 					</form:label></td>
 				<td><form:input path="description" required="true"></form:input></td>
 			</tr>
+ 			<tr>
+			
+			
+				<td><form:input path="status" type="hidden" value="pending"></form:input></td>
+			</tr>
+			
+			
+			
+			
 
 			<tr>
 				

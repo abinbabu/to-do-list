@@ -20,7 +20,7 @@ public class TaskTest {
 		task.setId("ts1");
 		task.setTask("no ya");
 		task.setDescription("ajyaclcdldu");
-		
+		task.setStatus("pending");
 		
 		taskDAO.saveOrUpdateTask(task);
 		

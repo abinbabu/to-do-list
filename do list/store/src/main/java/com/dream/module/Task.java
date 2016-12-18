@@ -12,6 +12,13 @@ public class Task {
 	private String id;
 	private String task;
 	private String description;
+	private String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getId() {
 		return id;
 	}

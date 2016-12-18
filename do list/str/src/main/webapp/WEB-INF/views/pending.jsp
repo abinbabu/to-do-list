@@ -6,6 +6,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
 <head>
+<meta http-equiv="refresh" content="1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>added tasks</title>
 
@@ -19,6 +20,7 @@
 				<th style=" font-family: verdana; "> ID</th>
 				<th style=" font-family: verdana; "> TASK</th>
 				<th style=" font-family: verdana; "> DESCRIPTION</th>
+				<th style=" font-family: verdana; "> STATUS</th>
 				
 			</tr>
 
@@ -27,7 +29,9 @@
 					<td style=" font-family: verdana; ">${task.id}</td>
 					<td style=" font-family: verdana; ">${task.task}</td>
 					<td style=" font-family: verdana; ">${task.description}</td>
+					<td style=" font-family: verdana; ">${task.status}</td>
 					<td> <a href="<c:url value='task/delete/${task.id}' />">Delete</a></td>
+					<td> <a href="<c:url value='task/update/${task.id}' />">Update</a></td>
 					</tr>
 			</c:forEach>
 		</table>

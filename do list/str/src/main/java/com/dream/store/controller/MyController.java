@@ -116,15 +116,14 @@ public class MyController {
 	
 	
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
-	public ModelAndView newr(Model model) {
+	public ModelAndView newr(@ModelAttribute("task") Task t) {
 
-		ModelAndView mv = new ModelAndView("/task");
+		ModelAndView mv = new ModelAndView("/new");
 		mv.addObject("isnew", "true");
-		model.addAttribute("task", task);
-		model.addAttribute("taskList", this.taskDAO.listTask());
+		//model.addAttribute("task", task);
+		//model.addAttribute("taskList", this.taskDAO.listTask());
 		return mv;
 	}
-	
 	
 	@RequestMapping(value = "/task/delete/{id}")
 	public String deleteTask(@PathVariable("id") String id, ModelMap model) {
@@ -132,15 +131,43 @@ public class MyController {
 		taskDAO.deleteTask(id);;
 		
 	
-	return "redirect:/new";
+	return "redirect:/pending";
 }
 	
+	
+	
+	
+	@RequestMapping(value = "task/update/{id}")
+	public String  editstatus(@PathVariable("id") String id,@ModelAttribute("task") Task t) {
+		ModelAndView model=new ModelAndView("/pending");
+		task.setId(id);
+		t=taskDAO.getTask(id);
+		t.setStatus("done");
+		//task=taskDAO.getTask(id);
+	
+		System.out.println("dddddddddddddddddddddddddddddd"+id);
+		model.addObject("task", task);
+		model.addObject("taskList", this.taskDAO.listTask());
+		taskDAO.saveOrUpdateTask(t);
+
+		return "redirect:/pending";
+	}
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping("/pending")
-	public ModelAndView pending(Model model) {
+	public ModelAndView pending(@ModelAttribute("task") Task t) {
 
 		ModelAndView mv = new ModelAndView("/task");
 		mv.addObject("isnewp", "true");
-		model.addAttribute("taskList", this.taskDAO.listTask());
+		mv.addObject("taskList", this.taskDAO.listTask());
 		return mv;
 	}
 	
@@ -164,7 +191,7 @@ public class MyController {
 		
 		taskDAO.saveOrUpdateTask(task);
 
-		return "redirect:/new";
+		return "redirect:/pending";
 	}
 
 }
